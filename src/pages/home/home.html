@@ -1,14 +1,39 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+
+  <ion-navbar color="dark">
+    <ion-title>home</ion-title>
   </ion-navbar>
+
 </ion-header>
 
+
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+    <ion-item no-padding text-ewrap no-lines>
+        Basic date picker which dont require any plugin.
+    </ion-item>
+    <ion-item no-padding>
+        <ion-label stacked>Select Date</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY HH:mm" pickerFormat="DD/MM/YYYY HH:mm" placeholder="DD/MM/YYYY HH:mm"></ion-datetime>
+    </ion-item>
+
+    <!--from ionic native and requires plugin to install -->
+    <ion-item no-padding text-ewrap no-lines>
+        Ionic native date picker.
+    </ion-item>
+    <button ion-button icon-only (click)="datepickerIonic()">
+        <ion-icon name="md-calendar"></ion-icon>
+    </button>
+    <span>{{ ionicDate | date}}</span>
+
+    <ion-item no-padding text-ewrap no-lines>
+        Date picker using <b>datepicker-ionic2</b>.
+    </ion-item>
+    <span ion-datepicker (ionChanged)="setDate($event);" [value]="localDate" [min]="localDate" clear class="ScheduleDate">
+        <button ion-button icon-only>    
+            <ion-icon name="md-calendar" item-left ></ion-icon>
+        </button>
+        <span>{{localDate | date}} </span>
+    </span>
+
 </ion-content>
